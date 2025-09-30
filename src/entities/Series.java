@@ -5,17 +5,12 @@ public class Series {
 		private String title;
 		private String genre;
 		private int seasons;
+		private double duration;
+		private int episode;
+		private double rating;
 	
 		
-		public Series() {
-			
-		}
-
-		public Series(String title, String genre,int seasons) {
-			this.title = title;
-			this.genre = genre;
-			this.seasons= seasons;
-		}
+	
 
 		public String getTitle() {
 			return title;
@@ -42,9 +37,31 @@ public class Series {
 			this.seasons = seasons;
 		}
 
-		public void showInfo() {
-			System.out.println("Titulo: "+ getTitle()+" gênero: "+ getGenre()+" temporadas: "+getSeasons());
+		public double getDuration() {
+			return duration;
 		}
+
+		public void setDuration(double duration) {
+			this.duration = duration;
+		}
+
+		public int getEpisode() {
+			return episode;
+		}
+
+		public void setEpisode(int episode) {
+			this.episode = episode;
+		}
+
+		public double getRating() {
+			return rating;
+		}
+
+		public void setRating(double rating) {
+			this.rating = rating;
+		}
+
+		
 		
 
 	}

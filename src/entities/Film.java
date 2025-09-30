@@ -1,25 +1,26 @@
 package entities;
 
+import java.util.Date;
+
+
 public class Film {
 	
 	private String title;
 	private String genre;
-	private int time;
+	private double duration;
+	private double rating;
+	private Date releaseDate;
 	
-	public Film() {
-		
-	}
 
-	public Film(String title, String genre, int time) {
-		this.title = title;
-		this.genre = genre;
-		this.time = time;
-	}
 
 	public String getTitle() {
 		return title;
 	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 	public void setName(String title) {
 		this.title = title;
 	}
@@ -32,18 +33,31 @@ public class Film {
 		this.genre = genre;
 	}
 
-	public int getTime() {
-		return time;
+	public double getDuration() {
+		return duration;
 	}
 
-	public void setTime(int time) {
-		this.time = time;
+	public void setDuration(double duration) {
+		this.duration = duration;
 	}
-	
-	
-	public void showInfo() {
-		System.out.println("Titulo: "+ getTitle()+" gênero: "+ getGenre()+" tempo: "+ getTime());
-	}
-	
 
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public Date getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+
+
+	
 }
