@@ -41,7 +41,7 @@ public class Film {
 		this.duration = duration;
 	}
 
-	public int getRating() {
+	public double getRating() {
 		return rating;
 	}
 

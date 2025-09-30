@@ -1,6 +1,6 @@
 package entities;
 
-public class Series {
+public class Serie {
 	
 		private String title;
 		private String genre;
