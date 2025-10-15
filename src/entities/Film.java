@@ -11,6 +11,30 @@ public class Film {
 	private double rating;
 	private Date releaseDate;
 	
+	public Film() {
+	}
+
+	
+	
+
+	public Film(String title, String genre, double duration, double rating, Date releaseDate) {
+		this.title = title;
+		this.genre = genre;
+		this.duration = duration;
+		this.rating = rating;
+		this.releaseDate = releaseDate;
+	}
+
+
+
+
+	public Film(String title, String genre) {
+
+		this.title = title;
+		this.genre = genre;
+	}
+
+
 
 
 	public String getTitle() {

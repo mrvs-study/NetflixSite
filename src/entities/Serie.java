@@ -9,8 +9,26 @@ public class Serie {
 		private int episode;
 		private double rating;
 	
-		
+		public Serie() {
+		}
 	
+		
+
+		public Serie(String title, String genre, int seasons, double duration, int episode, double rating) {
+			this.title = title;
+			this.genre = genre;
+			this.seasons = seasons;
+			this.duration = duration;
+			this.episode = episode;
+			this.rating = rating;
+		}
+
+		public Serie(String title, String genre) {
+			this.title = title;
+			this.genre = genre;
+		}
+
+
 
 		public String getTitle() {
 			return title;

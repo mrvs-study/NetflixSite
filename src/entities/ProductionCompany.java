@@ -1,13 +1,39 @@
 package entities;
 
+import java.util.Date;
+
 public class ProductionCompany {
 
 	private String directorName;
 	private String actorName;
 	private String plot;
-	private String releaseDate;
+	private Date releaseDate;
 	private String cnpj;
 	private String mediaType;
+
+	public  ProductionCompany() {
+	}
+	
+	
+	
+	public ProductionCompany(String directorName, String actorName, String plot, Date releaseDate, String cnpj,String mediaType) {
+		this.directorName = directorName;
+		this.actorName = actorName;
+		this.plot = plot;
+		this.releaseDate = releaseDate;
+		this.cnpj = cnpj;
+		this.mediaType = mediaType;
+	}
+
+	
+
+
+	public ProductionCompany(String directorName, String actorName) {
+		this.directorName = directorName;
+		this.actorName = actorName;
+	}
+
+
 
 	public String getDirectorName() {
 		return directorName;
@@ -33,11 +59,11 @@ public class ProductionCompany {
 		this.plot = plot;
 	}
 
-	public String getReleaseDate() {
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(String releaseDate) {
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 

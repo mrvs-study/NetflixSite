@@ -10,6 +10,26 @@ public class Client{
 	private String sexuality;
 	
 	
+	public Client() {
+	}
+	
+	
+	public Client(String name, String email, int age, String cpf, String sexuality) {
+		this.name = name;
+		this.email = email;
+		this.age = age;
+		this.cpf = cpf;
+		this.sexuality = sexuality;
+	}
+	
+
+
+	public Client(String name, String email) {
+		this.name = name;
+		this.email = email;
+	}
+
+
 	public String getName() {
 		return name;
 	}

@@ -9,6 +9,24 @@ public class Admin {
 	private String email;
 	private int nivelDeAcesso;
 	private Date dataDeCadastro;
+	
+	
+
+	public Admin() {
+	}
+	
+	public Admin(int nivelDeAcesso, Date dataDeCadastro) {
+		this.nivelDeAcesso = nivelDeAcesso;
+		this.dataDeCadastro = dataDeCadastro;
+	}
+
+	public Admin(int age, String name, String email, int nivelDeAcesso, Date dataDeCadastro) {
+		this.age = age;
+		this.name = name;
+		this.email = email;
+		this.nivelDeAcesso = nivelDeAcesso;
+		this.dataDeCadastro = dataDeCadastro;
+	}
 
 	public int getAge() {
 		return age;
