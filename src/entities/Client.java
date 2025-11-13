@@ -1,59 +1,27 @@
 package entities;
 
-public class Client{
+public class Client extends Usuario{
 
-	
-	private String name;
-	private String email;
-	private int age;
 	private String cpf;
 	private String sexuality;
 	
 	
 	public Client() {
 	}
-	
-	
-	public Client(String name, String email, int age, String cpf, String sexuality) {
-		this.name = name;
-		this.email = email;
-		this.age = age;
+
+	public Client(int age, String name, String email, String cpf, String sexuality) {
+		super(age, name, email);
 		this.cpf = cpf;
 		this.sexuality = sexuality;
 	}
+
+
+	public Client(String cpf, String sexuality) {
+		this.cpf = cpf;
+		this.sexuality = sexuality;
+	}
+
 	
-
-
-	public Client(String name, String email) {
-		this.name = name;
-		this.email = email;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name=name;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email=email;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public String getCpf() {
 		return cpf;
 	}
@@ -68,6 +36,11 @@ public class Client{
 
 	public void setSexuality(String sexuality) {
 		this.sexuality = sexuality;
+	}
+
+	@Override
+	public void logar() {
+		System.out.println("O usuario logou com sucesso!! ");
 	}
 
 	
