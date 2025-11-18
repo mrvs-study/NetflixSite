@@ -2,7 +2,7 @@ package entities;
 
 import java.util.Date;
 
-public class ProductionCompany {
+public class ProductCompany {
 
 	private String directorName;
 	private String actorName;
@@ -11,12 +11,12 @@ public class ProductionCompany {
 	private String cnpj;
 	private String mediaType;
 
-	public  ProductionCompany() {
+	public  ProductCompany() {
 	}
 	
 	
 	
-	public ProductionCompany(String directorName, String actorName, String plot, Date releaseDate, String cnpj,String mediaType) {
+	public ProductCompany(String directorName, String actorName, String plot, Date releaseDate, String cnpj,String mediaType) {
 		this.directorName = directorName;
 		this.actorName = actorName;
 		this.plot = plot;
@@ -28,7 +28,7 @@ public class ProductionCompany {
 	
 
 
-	public ProductionCompany(String directorName, String actorName) {
+	public ProductCompany(String directorName, String actorName) {
 		this.directorName = directorName;
 		this.actorName = actorName;
 	}
@@ -82,5 +82,21 @@ public class ProductionCompany {
 	public void setMediaType(String mediaType) {
 		this.mediaType = mediaType;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "ProductCompany \n"+
+	            " directorName \n" + directorName + 
+				" actorName \n" + actorName +
+				" plot \n" + plot +
+				" releaseDate \n" + releaseDate +
+				" cnpj \n" + cnpj +
+				" mediaType \n" + 
+				mediaType ;
+	}
+	
+
 
 }
