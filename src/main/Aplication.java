@@ -11,71 +11,51 @@ import service.AdminService;
 public class Aplication {
 	
 	public static void main(String[] args ) throws ParseException  {
-		 AdminService service = new AdminService();
+		  AdminService service = new AdminService();
 
 	        String senha = "admin123";
 	        String nome = "Marquin";
 
-	        // -------------------- Testar login --------------------
-	        System.out.println("=== Teste de Login ===");
-	        try {
-	            service.logarAdmin(senha, nome);
-	        } catch (IllegalArgumentException e) {
-	            System.out.println(e.getMessage());
-	        }
+	       
+	        System.out.println(" Teste de Login ");
+	        service.logarAdmin(senha, nome);
 
-	        // -------------------- Testar cadastro --------------------
-	        System.out.println("\n=== Teste de Cadastro ===");
+	       
+	        System.out.println("\n Teste de Cadastro ");
 	        Admin admin1 = new Admin(25, "Carlos", "carlos@email.com", 2, new Date());
 	        Admin admin2 = new Admin(30, "Ana", "ana@email.com", 1, new Date());
 
-	        try {
-	            service.cadastrar(admin1, senha, nome);
-	            service.cadastrar(admin2, senha, nome);
-	            System.out.println("Admins cadastrados com sucesso!");
-	        } catch (IllegalArgumentException e) {
-	            System.out.println(e.getMessage());
-	        }
+	        service.cadastrar(admin1, senha, nome);
+	        service.cadastrar(admin2, senha, nome);
+	        System.out.println("cadastrados com sucesso!");
 
-	        // -------------------- Testar listagem --------------------
-	        System.out.println("\n=== Teste de Listagem ===");
+	       
+	        System.out.println("\nTeste de Listagem");
 	        List<Admin> admins = service.listar();
 	        for (int i = 0; i < admins.size(); i++) {
 	            Admin a = admins.get(i);
-	            System.out.println(i + " - Nome: " + a.getName() + ", Email: " + a.getEmail() + ", Nível: " + a.getNivelDeAcesso()+ a.getAge()+a.getDataDeCadastro());
+	            System.out.println(i + " - Nome: " + a.getName() + ", Email: " + a.getEmail() + ", Nivel: " + a.getNivelDeAcesso());
 	        }
 
-	        // -------------------- Testar alterar nível de acesso --------------------
-	        System.out.println("\n=== Teste de Alterar Nível ===");
-	        try {
-	            service.alterarNivelDeAcesso(0, 3, senha, nome); // alterar Carlos para nível 3
-	        } catch (IllegalArgumentException e) {
-	            System.out.println(e.getMessage());
-	        }
+	       
+	        System.out.println("\n Teste de Alterar Nível ");
+	        service.alterarNivelDeAcesso(0, 3, senha, nome); 
 
-	        // -------------------- Testar alterar dados de admin --------------------
-	        System.out.println("\n=== Teste de Alterar Admin ===");
+	       
+	        System.out.println("\n Teste de Alterar Admin ");
 	        Admin adminAlterado = new Admin(26, "Carlos Silva", "carlossilva@email.com", 3, new Date());
-	        try {
-	            service.alterar(0, adminAlterado, senha, nome);
-	        } catch (IllegalArgumentException e) {
-	            System.out.println(e.getMessage());
-	        }
+	        service.alterar(0, adminAlterado, senha, nome);
 
-	        // -------------------- Testar remoção --------------------
-	        System.out.println("\n=== Teste de Remoção ===");
-	        try {
-	            service.remover(1, senha, nome); // remover Ana
-	        } catch (IllegalArgumentException e) {
-	            System.out.println(e.getMessage());
-	        }
+	      
+	        System.out.println("\n Teste de Remoção ");
+	        service.remover(1, senha, nome); 
 
-	        // -------------------- Listagem final --------------------
-	        System.out.println("\n=== Lista Final de Admins ===");
+	       
+	        System.out.println("\n Lista Final de Admins ");
 	        admins = service.listar();
 	        for (int i = 0; i < admins.size(); i++) {
 	            Admin a = admins.get(i);
-	            System.out.println(i + " - Nome: " + a.getName() + ", Email: " + a.getEmail() + ", Nível: " + a.getNivelDeAcesso());
+	            System.out.println(i + " - Nome: " + a.getName() + ", Email: " + a.getEmail() + ", Nivel: " + a.getNivelDeAcesso());
 	        }
 	    }
 	}

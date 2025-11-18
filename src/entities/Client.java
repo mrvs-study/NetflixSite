@@ -40,7 +40,7 @@ public class Client extends Usuario{
 
 	@Override
 	public void logar() {
-		System.out.println("O usuario logou com sucesso!! ");
+		System.out.println("Seu login foi um sucesso!! ");
 	}
 
 	
