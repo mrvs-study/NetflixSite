@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.Admin;
 
-public class AdminRepository implements IReposity<Admin> {
+public class AdminRepository implements IRepository<Admin> {
 
 	  private List<Admin> list = new ArrayList<>();
 

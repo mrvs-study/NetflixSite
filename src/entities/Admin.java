@@ -17,8 +17,6 @@ public class Admin extends Usuario {
 		this.dataDeCadastro = dataDeCadastro;
 	}
 
-	
-
 	public Date getDataDeCadastro() {
 		return dataDeCadastro;
 	}
@@ -29,6 +27,10 @@ public class Admin extends Usuario {
 
 	public int getNivelDeAcesso() {
 		return nivelDeAcesso;
+	}
+
+	public void setNivelDeAcesso(int nivelDeAcesso) {
+		this.nivelDeAcesso = nivelDeAcesso;
 	}
 
 	public void alterarAcesso(int novoNivel) {
@@ -46,6 +48,13 @@ public class Admin extends Usuario {
 	@Override
 	public void logar() {
 		System.out.println("O administrador logou com sucesso!!");
+	}
+
+	@Override
+	public String toString() {
+		return ", Name " + getName() + ", Email " + getEmail()+ ", Age " + getAge() + "Admin nivelDeAcesso " + nivelDeAcesso
+				+ ", dataDeCadastro " + dataDeCadastro ;
+
 	}
 
 }

@@ -1,12 +1,14 @@
 package entities;
 
+import java.util.Date;
+
 public class Serie {
 	
 		private String title;
 		private String genre;
 		private int seasons;
-		private double duration;
-		private int episode;
+		private Date releaseDate;
+		private int episodes;
 		private double rating;
 	
 		public Serie() {
@@ -14,12 +16,12 @@ public class Serie {
 	
 		
 
-		public Serie(String title, String genre, int seasons, double duration, int episode, double rating) {
+		public Serie(String title, String genre, int seasons, Date releaseDate, int episodes, double rating) {
 			this.title = title;
 			this.genre = genre;
 			this.seasons = seasons;
-			this.duration = duration;
-			this.episode = episode;
+			this.releaseDate = releaseDate;
+			this.episodes = episodes;
 			this.rating = rating;
 		}
 
@@ -55,20 +57,20 @@ public class Serie {
 			this.seasons = seasons;
 		}
 
-		public double getDuration() {
-			return duration;
+		public Date getReleaseDate() {
+			return releaseDate;
 		}
 
-		public void setDuration(double duration) {
-			this.duration = duration;
+		public void setReleaseDate(Date releaseDate) {
+			this.releaseDate = releaseDate;
 		}
 
-		public int getEpisode() {
-			return episode;
+		public int getEpisodes() {
+			return episodes;
 		}
 
-		public void setEpisode(int episode) {
-			this.episode = episode;
+		public void setEpisodes(int episodes) {
+			this.episodes = episodes;
 		}
 
 		public double getRating() {

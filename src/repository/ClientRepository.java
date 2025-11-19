@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.Client;
 
-public class ClientRepository implements IReposity<Client>{
+public class ClientRepository implements IRepository<Client>{
 	
 	List<Client> list = new ArrayList<>();
 

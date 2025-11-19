@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.ProductCompany;
 
-public class ProductCompanyRepository implements IReposity<ProductCompany> {
+public class ProductCompanyRepository implements IRepository<ProductCompany> {
     
     private List<ProductCompany> list = new ArrayList<>();
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.Film;
 
-public class FilmRepository implements IReposity<Film> {
+public class FilmRepository implements IRepository<Film> {
 
 	  private List<Film> list = new ArrayList<>();
 

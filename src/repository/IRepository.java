@@ -2,7 +2,7 @@ package repository;
 
 import java.util.List;
 
-public interface IReposity <T>{
+public interface IRepository <T>{
 	
 	void cadastrar(T obj);
 	void remover(int index);

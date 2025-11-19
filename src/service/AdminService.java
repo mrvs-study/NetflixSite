@@ -19,6 +19,16 @@ public class AdminService {
 	private void validar(Admin admin) {
 		validarCampo(admin.getName(), "Nome ");
 		validarCampo(admin.getEmail(), "Email ");
+		
+		if (admin.getDataDeCadastro() == null) {
+			throw new IllegalArgumentException("Data de cadastro não pode ser nula.");
+		}
+		if (admin.getAge() <=18) {
+			throw new IllegalArgumentException("Idade não pode ser menor que 18");
+		}
+		if (admin.getNivelDeAcesso() < 1 || admin.getNivelDeAcesso() > 3) {
+			throw new IllegalArgumentException("O nivel de acesso deve estar entre 1 e 3");
+		}
 	}
 
 	private void validarCampo(String valor, String nomeCampo) {
@@ -48,9 +58,7 @@ public class AdminService {
 
 		validarAcesso(senhaDigitada,nomeDigitado);
 
-	    if (index < 0 || index >= repository.listar().size()) {
-	        throw new IllegalArgumentException("posição invalida");
-	    }
+	    validarIndice(index);
 
 	    if (novoNivel < 1 || novoNivel > 3) {
 	        throw new IllegalArgumentException("O nivel de acesso deve estar entre 1 e 3");
@@ -67,15 +75,7 @@ public class AdminService {
 
 		validar(admin);
 
-		if (admin.getDataDeCadastro() == null) {
-			throw new IllegalArgumentException("Data de cadastro não pode ser nula.");
-		}
-		if (admin.getAge() <= 18) {
-			throw new IllegalArgumentException("Idade não pode ser menor ou igual a 18");
-		}
-		if (admin.getNivelDeAcesso() < 1 || admin.getNivelDeAcesso() > 3) {
-			throw new IllegalArgumentException("O nivel de acesso deve estar entre 1 e 3");
-		}
+	
 
 		repository.cadastrar(admin);
 	}
@@ -86,11 +86,13 @@ public class AdminService {
 		repository.remover(index);
 	}
 
-	public void alterar(int index, Admin product, String senhaDigitada, String nomeDigitado) {
+	public void alterar(int index, Admin admin, String senhaDigitada, String nomeDigitado) {
 
+
+		validar(admin);
 		validarAcesso(senhaDigitada,nomeDigitado);
 		validarIndice(index);
-		repository.alterar(index, product);
+		repository.alterar(index, admin);
 	}
 
 	public List<Admin> listar() {

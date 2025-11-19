@@ -8,18 +8,27 @@ import repository.ProductCompanyRepository;
 public class ProductCompanyService {
 
 	private ProductCompanyRepository repository;
+	private FilmService filmService;
+	private SerieService serieService;
 
-	public ProductCompanyService() {
-		this.repository = new ProductCompanyRepository();
+
+	public ProductCompanyService(FilmService filmService, SerieService serieService) {
+	    this.repository = new ProductCompanyRepository();
+	    this.filmService = filmService;
+	    this.serieService = serieService;
 	}
+
 
 	private void validar(ProductCompany product) {
 
 		validarCampo(product.getDirectorName(), " Nome do diretor ");
-		validarCampo(product.getActorName(), " Nome do ator ");
+		validarCampo(product.getName(), " Nome do filme ");
 		validarCampo(product.getPlot(), " Sinopse ");
 		validarCampo(product.getCnpj(), " Cnpj ");
 		validarCampo(product.getMediaType(), " Tipo de midia ");
+		if (product.getReleaseDate() == null) {
+		    throw new IllegalArgumentException("Data de lançamento não pode ser nula.");
+		}
 
 	}
 
@@ -30,11 +39,7 @@ public class ProductCompanyService {
 	}
 
 	public void cadastrar(ProductCompany product) {
-		if (product.getReleaseDate() == null) {
-		    throw new IllegalArgumentException("Data de lançamento não pode ser nula.");
-		}
-
-
+		
 		validar(product);
 		repository.cadastrar(product);
 		System.out.println("Produto cadastrado com sucesso!");
@@ -45,6 +50,8 @@ public class ProductCompanyService {
 	}
 
 	public void alterar(int index, ProductCompany product) {
+		
+		validar(product);
 		repository.alterar(index, product);
 	}
 

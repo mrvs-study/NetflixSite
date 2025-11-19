@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.Serie;
 
-public class SerieRepository implements IReposity<Serie>{
+public class SerieRepository implements IRepository<Serie>{
 	
 	  private List<Serie> list = new ArrayList<>();
 

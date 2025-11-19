@@ -5,7 +5,7 @@ import java.util.Date;
 public class ProductCompany {
 
 	private String directorName;
-	private String actorName;
+	private String name;
 	private String plot;
 	private Date releaseDate;
 	private String cnpj;
@@ -16,9 +16,9 @@ public class ProductCompany {
 	
 	
 	
-	public ProductCompany(String directorName, String actorName, String plot, Date releaseDate, String cnpj,String mediaType) {
+	public ProductCompany(String directorName, String name, String plot, Date releaseDate, String cnpj,String mediaType) {
 		this.directorName = directorName;
-		this.actorName = actorName;
+		this.name = name;
 		this.plot = plot;
 		this.releaseDate = releaseDate;
 		this.cnpj = cnpj;
@@ -28,9 +28,9 @@ public class ProductCompany {
 	
 
 
-	public ProductCompany(String directorName, String actorName) {
+	public ProductCompany(String directorName, String name) {
 		this.directorName = directorName;
-		this.actorName = actorName;
+		this.name = name;
 	}
 
 
@@ -43,12 +43,12 @@ public class ProductCompany {
 		this.directorName = directorName;
 	}
 
-	public String getActorName() {
-		return actorName;
+	public String getName() {
+		return name;
 	}
 
-	public void setActorName(String actorName) {
-		this.actorName = actorName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPlot() {
@@ -84,18 +84,6 @@ public class ProductCompany {
 	}
 
 
-
-	@Override
-	public String toString() {
-		return "ProductCompany \n"+
-	            " directorName \n" + directorName + 
-				" actorName \n" + actorName +
-				" plot \n" + plot +
-				" releaseDate \n" + releaseDate +
-				" cnpj \n" + cnpj +
-				" mediaType \n" + 
-				mediaType ;
-	}
 	
 
 
