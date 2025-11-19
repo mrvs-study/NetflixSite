@@ -54,49 +54,41 @@ public class AdminService {
 		admin.logar();
 	}
 
-	public void alterarNivelDeAcesso(int index, int novoNivel, String senhaDigitada, String nomeDigitado) {
-
-		validarAcesso(senhaDigitada,nomeDigitado);
-
-	    validarIndice(index);
-
-	    if (novoNivel < 1 || novoNivel > 3) {
-	        throw new IllegalArgumentException("O nivel de acesso deve estar entre 1 e 3");
+	 public void cadastrar(Admin admin, String senhaDigitada, String nomeDigitado) {
+	        validarAcesso(senhaDigitada, nomeDigitado);
+	        validar(admin);
+	        repository.cadastrar(admin);
+	        System.out.println("Administrador cadastrado!");
 	    }
 
-	    Admin admin = repository.listar().get(index);
-	    admin.alterarAcesso(novoNivel, true);
+	    public void remover(int index, String senhaDigitada, String nomeDigitado) {
+	        validarAcesso(senhaDigitada, nomeDigitado);
+	        validarIndice(index);
+	        repository.remover(index);
+	        System.out.println("Administrador removido!");
+	    }
+
+	    public void alterar(int index, Admin admin, String senhaDigitada, String nomeDigitado) {
+	        validarAcesso(senhaDigitada, nomeDigitado);
+	        validarIndice(index);
+	        validar(admin);
+	        repository.alterar(index, admin);
+	        System.out.println("Admin alterado!");
+	    }
+
+	    public void alterarNivelDeAcesso(int index, int novoNivel, String senhaDigitada, String nomeDigitado) {
+	        validarAcesso(senhaDigitada, nomeDigitado);
+	        validarIndice(index);
+
+	        if (novoNivel < 1 || novoNivel > 3) {
+	            throw new IllegalArgumentException("Nível deve ser entre 1 e 3.");
+	        }
+
+	        Admin admin = repository.listar().get(index);
+	        admin.alterarAcesso(novoNivel, true);
+	    }
+
+	    public List<Admin> listar() {
+	        return repository.listar();
+	    }
 	}
-
-
-	public void cadastrar(Admin admin, String senhaDigitada, String nomeDigitado) {
-
-		validarAcesso(senhaDigitada,nomeDigitado);
-
-		validar(admin);
-
-	
-
-		repository.cadastrar(admin);
-	}
-
-	public void remover(int index, String senhaDigitada, String nomeDigitado) {
-		validarAcesso(senhaDigitada,nomeDigitado);
-		validarIndice(index);
-		repository.remover(index);
-	}
-
-	public void alterar(int index, Admin admin, String senhaDigitada, String nomeDigitado) {
-
-
-		validar(admin);
-		validarAcesso(senhaDigitada,nomeDigitado);
-		validarIndice(index);
-		repository.alterar(index, admin);
-	}
-
-	public List<Admin> listar() {
-		return repository.listar();
-	}
-
-}

@@ -33,6 +33,8 @@ public class Aplication {
 		serieService.cadastrar(s2);
 		Serie s3 = new Serie("IT Welcome to the Darry ", "terror ", 1, 4, 3.85, sdf.parse("26/11/2025"));
 		serieService.cadastrar(s3);
+		
+		
 
 		int opcao = -1;
 
@@ -104,75 +106,146 @@ public class Aplication {
 	}
 
 	public static void menuAdmin(Scanner sc, AdminService adminService, FilmService filmService,
-			SerieService serieService) throws ParseException {
+	        SerieService serieService) throws ParseException {
 
-		System.out.print("Nome do admin: ");
-		String nome = sc.nextLine();
+	    System.out.print("Nome do admin: ");
+	    String nome = sc.nextLine();
 
-		System.out.print("Senha: ");
-		String senha = sc.nextLine();
+	    System.out.print("Senha: ");
+	    String senha = sc.nextLine();
 
-		adminService.logarAdmin(senha, nome);
+	    adminService.logarAdmin(senha, nome);
 
-		int opcao = -1;
+	    int opcao = -1;
 
-		while (opcao != 0) {
+	    while (opcao != 0) {
 
-			System.out.println("\n=== MENU ADMINISTRADOR ===");
-			System.out.println("1 - Cadastrar Filme");
-			System.out.println("2 - Alterar Filme");
-			System.out.println("3 - Remover Filme");
-			System.out.println("4 - Cadastrar Série");
-			System.out.println("5 - Alterar Série");
-			System.out.println("6 - Remover Série");
-			System.out.println("7 - Listar Filmes");
-			System.out.println("8 - Listar Séries");
-			System.out.println("0 - Voltar");
-			System.out.print("Opção: ");
+	        System.out.println("\n=== MENU ADMINISTRADOR ===");
+	        System.out.println("1 - Cadastrar Filme");
+	        System.out.println("2 - Alterar Filme");
+	        System.out.println("3 - Remover Filme");
+	        System.out.println("4 - Listar Filme");
+	        System.out.println("5 - Cadastrar Serie");
+	        System.out.println("6 - Alterar Serie");
+	        System.out.println("7- Remover Serie");
+	        System.out.println("8 - Listar Séries");
+	        System.out.println("9 - Cadastrar Admin");
+	        System.out.println("10 - Remover Admin");
+	        System.out.println("11 - Alterar Admin");
+	        System.out.println("12 - Alterar Nível de Acesso");
+	        System.out.println("13 - Listar Admins");
+	        System.out.println("0 - Voltar");
+	        System.out.print("Opção: ");
 
-			opcao = sc.nextInt();
-			sc.nextLine();
+	        opcao = sc.nextInt();
+	        sc.nextLine();
 
-			if (opcao == 1) {
-				Film f = criarFilme(sc);
-				filmService.cadastrar(f);
 
-			} else if (opcao == 2) {
-				System.out.print("Index do filme: ");
-				int idx = sc.nextInt();
-				sc.nextLine();
-				filmService.alterar(idx, criarFilme(sc));
+	        if (opcao == 1) {
+	            Film f = criarFilme(sc);
+	            filmService.cadastrar(f);
 
-			} else if (opcao == 3) {
-				System.out.print("Index do filme: ");
-				filmService.remover(sc.nextInt());
-				sc.nextLine();
+	        } else if (opcao == 2) {
+	            System.out.print("Index do filme: ");
+	            int idx = sc.nextInt();
+	            sc.nextLine();
+	            filmService.alterar(idx, criarFilme(sc));
 
-			} else if (opcao == 4) {
-				serieService.cadastrar(criarSerie(sc));
+	        } else if (opcao == 3) {
+	            System.out.print("Index do filme: ");
+	            filmService.remover(sc.nextInt());
+	            sc.nextLine();
 
-			} else if (opcao == 5) {
-				System.out.print("Index da série: ");
-				int idx = sc.nextInt();
-				sc.nextLine();
-				serieService.alterar(idx, criarSerie(sc));
+	        } 
+	        else if (opcao == 4) {
+	            System.out.println(filmService.listar());
 
-			} else if (opcao == 6) {
-				System.out.print("Index da série: ");
-				serieService.remover(sc.nextInt());
-				sc.nextLine();
+	        } else if (opcao == 5) {
+	            serieService.cadastrar(criarSerie(sc));
 
-			} else if (opcao == 7) {
-				System.out.println(filmService.listar());
+	        } else if (opcao == 6) {
+	            System.out.print("Index da série: ");
+	            int idx = sc.nextInt();
+	            sc.nextLine();
+	            serieService.alterar(idx, criarSerie(sc));
 
-			} else if (opcao == 8) {
-				System.out.println(serieService.listar());
+	        } else if (opcao == 7) {
+	            System.out.print("Index da série: ");
+	            serieService.remover(sc.nextInt());
+	            sc.nextLine();
 
-			} else if (opcao != 0) {
-				System.out.println("Opção inválida!");
-			}
-		}
+	        } else if (opcao == 8) {
+	            System.out.println(serieService.listar());
+
+	        } else if (opcao == 9) {
+	            System.out.print("Nome do admin autorizador: ");
+	            String nomeOp = sc.nextLine();
+
+	            System.out.print("Senha: ");
+	            String senhaOp = sc.nextLine();
+
+	            Admin novo = criarAdmin(sc);
+	            adminService.cadastrar(novo, senhaOp, nomeOp);
+	        }
+ 
+	          else if (opcao == 10) {
+	        System.out.print("Nome do admin autorizador: ");
+	        String nomeOp = sc.nextLine();
+
+	        System.out.print("Senha: ");
+	        String senhaOp = sc.nextLine();
+
+	        System.out.print("Index do admin: ");
+	        int idx = sc.nextInt();
+	        sc.nextLine();
+
+	        adminService.remover(idx, senhaOp, nomeOp);
+	        }
+              else if (opcao == 11) {
+            	  System.out.print("Nome do admin autorizador: ");
+            	    String nomeAutorizador = sc.nextLine();
+
+            	    System.out.print("Senha do admin autorizador: ");
+            	    String senhaAutorizador = sc.nextLine();
+            	    
+            	    System.out.print("Índice do admin a alterar: ");
+            	    int indxAlt = sc.nextInt();
+            	    sc.nextLine();
+            	    
+            	    Admin alt = criarAdmin(sc);
+            	    
+            	    adminService.alterar(indxAlt, alt, senhaAutorizador, nomeAutorizador);
+
+            	    System.out.println("Operação concluída: admin alterado.");
+
+
+
+            } else if (opcao == 12) {
+	            System.out.print("Nome do admin autorizador: ");
+	            String nomeOp = sc.nextLine();
+
+	            System.out.print("Senha: ");
+	            String senhaOp = sc.nextLine();
+
+	            System.out.print("Index do admin: ");
+	            int idx = sc.nextInt();
+	            sc.nextLine();
+
+	            System.out.print("Novo nível (1-3): ");
+	            int nivel = sc.nextInt();
+	            sc.nextLine();
+
+	            adminService.alterarNivelDeAcesso(idx, nivel, senhaOp, nomeOp);
+	        }
+              else if (opcao == 13) {
+	            System.out.println(adminService.listar());
+
+	        } else if (opcao != 0) {
+	            System.out.println("Opção inválida!");
+	        }
+	    }
 	}
+
 
 	public static void menuEmpresa(Scanner sc, ProductCompanyService companyService, FilmService filmService,
 			SerieService serieService) throws ParseException {
@@ -235,6 +308,29 @@ public class Aplication {
 			}
 		}
 	}
+	
+	public static Admin criarAdmin(Scanner sc) {
+	    Admin a = new Admin();
+
+	    System.out.print("Nome: ");
+	    a.setName(sc.nextLine());
+
+	    System.out.print("Email: ");
+	    a.setEmail(sc.nextLine());
+
+	    System.out.print("Idade: ");
+	    a.setAge(sc.nextInt());
+	    sc.nextLine();
+
+	    System.out.print("Nível de acesso (1-3): ");
+	    int nivel = sc.nextInt();
+	    sc.nextLine();
+	    a.alterarAcesso(nivel);
+
+	    a.setDataDeCadastro(new Date());
+	    return a;
+	}
+
 
 	public static Film criarFilme(Scanner sc) throws ParseException {
 
