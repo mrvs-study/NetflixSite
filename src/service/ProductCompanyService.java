@@ -2,7 +2,9 @@ package service;
 
 import java.util.List;
 
+import entities.Film;
 import entities.ProductCompany;
+import entities.Serie;
 import repository.ProductCompanyRepository;
 
 public class ProductCompanyService {
@@ -57,6 +59,14 @@ public class ProductCompanyService {
 
 	public List<ProductCompany> listar() {
 		return repository.listar();
+	}
+	
+	public List<Film> listarFilmes() {
+		return filmService.listar();
+	}
+	
+	public List<Serie> listarSerie() {
+		return serieService.listar();
 	}
 
 }

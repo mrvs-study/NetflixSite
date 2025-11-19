@@ -16,13 +16,13 @@ public class Serie {
 	
 		
 
-		public Serie(String title, String genre, int seasons, Date releaseDate, int episodes, double rating) {
+		public Serie(String title, String genre, int seasons, int episodes, double rating, Date releaseDate) {
 			this.title = title;
 			this.genre = genre;
 			this.seasons = seasons;
-			this.releaseDate = releaseDate;
 			this.episodes = episodes;
 			this.rating = rating;
+			this.releaseDate = releaseDate;
 		}
 
 		public Serie(String title, String genre) {
@@ -79,6 +79,20 @@ public class Serie {
 
 		public void setRating(double rating) {
 			this.rating = rating;
+		}
+
+
+
+		@Override
+		public String toString() {
+			return "\nTítulo: " + title +
+			       "\nGênero: " + genre +
+			       "\nTemporadas: " + seasons +
+			       "\nEpisódios: " + episodes +
+			       "\nNota: " + rating +
+			       "\nLançamento: " + releaseDate +
+			       "]"+
+			       "\n";
 		}
 
 		

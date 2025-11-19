@@ -83,5 +83,20 @@ public class Film {
 
 
 
+
+	@Override
+	public String toString() {
+		return "\ntitle " + title + 
+				"\n genre " + genre +
+				"\n duration " + duration + 
+				"\n rating " + rating + 
+				"\n releaseDate " + releaseDate+
+				"]"+
+			    "\n";
+	}
+
+	
+
+
 	
 }
