@@ -15,8 +15,6 @@ public class Film {
 	}
 
 	
-	
-
 	public Film(String title, String genre, double duration, double rating, Date releaseDate) {
 		this.title = title;
 		this.genre = genre;

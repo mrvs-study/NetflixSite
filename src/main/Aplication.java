@@ -23,6 +23,7 @@ public class Aplication {
 		Film f1 = new Film("Vingadores", "Ação", 142, 4.5, sdf.parse("12/12/2012"));
 		Film f2 = new Film("Invocação do Mal", "Terror", 112, 4.2, sdf.parse("04/12/2025"));
 		Film f3 = new Film("Interestelar", "Ficção", 169, 4.35, sdf.parse("07/11/2014"));
+		
 		filmService.cadastrar(f1);
 		filmService.cadastrar(f2);
 		filmService.cadastrar(f3);
@@ -196,10 +197,10 @@ public class Aplication {
 	        String senhaOp = sc.nextLine();
 
 	        System.out.print("Index do admin: ");
-	        int idx = sc.nextInt();
+	        int indx = sc.nextInt();
 	        sc.nextLine();
 
-	        adminService.remover(idx, senhaOp, nomeOp);
+	        adminService.remover(indx, senhaOp, nomeOp);
 	        }
               else if (opcao == 11) {
             	  System.out.print("Nome do admin autorizador: ");
@@ -209,12 +210,12 @@ public class Aplication {
             	    String senhaAutorizador = sc.nextLine();
             	    
             	    System.out.print("Índice do admin a alterar: ");
-            	    int indxAlt = sc.nextInt();
+            	    int indxAdmin = sc.nextInt();
             	    sc.nextLine();
             	    
-            	    Admin alt = criarAdmin(sc);
+            	    Admin a = criarAdmin(sc);
             	    
-            	    adminService.alterar(indxAlt, alt, senhaAutorizador, nomeAutorizador);
+            	    adminService.alterar(indxAdmin, a, senhaAutorizador, nomeAutorizador);
 
             	    System.out.println("Operação concluída: admin alterado.");
 

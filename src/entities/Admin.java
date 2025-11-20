@@ -52,7 +52,7 @@ public class Admin extends Usuario {
 
 	@Override
 	public String toString() {
-		return ", Name " + getName() + ", Email " + getEmail()+ ", Age " + getAge() + "Admin nivelDeAcesso " + nivelDeAcesso
+		return ", Name " + getName() + ", Email " + getEmail()+ ", Age " + getAge() + " Admin nivelDeAcesso " + nivelDeAcesso
 				+ ", dataDeCadastro " + dataDeCadastro ;
 
 	}
